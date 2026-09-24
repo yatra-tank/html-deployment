@@ -4,81 +4,265 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+
+  <title>Yatra Tank | Profile</title>
+
   <style>
-    ** {
-      background-color: black;
+    * {
+      box-sizing: border-box;
     }
+
+    body {
+      margin: 0;
+      padding: 50px;
+      background-color: #f7f5f2;
+      color: #292522;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    /* ---------- Heading ---------- */
 
     h1 {
       color: saddlebrown;
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .gif {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      vertical-align: middle;
+      margin-left: 8px;
+    }
+
+    .intro {
+      max-width: 700px;
+      color: #5f5954;
+      font-size: 17px;
+    }
+
+    /* ---------- Sections ---------- */
+
+    section {
+      margin-top: 45px;
     }
 
     h3 {
       color: chocolate;
+      font-size: 22px;
+      margin-bottom: 15px;
     }
+
+    ul {
+      padding-left: 20px;
+      color: #514b46;
+    }
+
+    li {
+      margin: 10px 0;
+    }
+
+    /* ---------- Links ---------- */
 
     a {
+      color: purple;
       text-decoration: none;
-      color:purple;
-    }
-    
-    ul{
-      text-decoration: none;
-      color: brown;
-    }
-    img {
-      height: 10px;
     }
 
-    .gif {
-      height: 40px;
-      vertical-align: middle;
-      margin-left: 8px;
+    a:hover {
+      color: #6b2aa3;
+      text-decoration: underline;
+    }
+
+    /* ---------- Profile Links ---------- */
+
+    .profiles {
+      list-style: none;
+      padding: 0;
+    }
+
+    .profiles li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 14px 0;
+    }
+
+    .profiles img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+
+    /* ---------- Learning ---------- */
+
+    .learning {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .learning span {
+      padding: 8px 14px;
+      border: 1px solid #c7a98f;
+      border-radius: 20px;
+      color: saddlebrown;
+      background-color: #fffdf9;
+    }
+
+    /* ---------- Divider ---------- */
+
+    hr {
+      border: none;
+      border-top: 1px solid #ddd6cf;
+      margin: 45px 0;
+    }
+
+    /* ---------- Footer ---------- */
+
+    footer {
+      margin-top: 50px;
+      color: #8a817a;
+      font-size: 14px;
+    }
+
+    /* ---------- Responsive ---------- */
+
+    @media (max-width: 600px) {
+      body {
+        padding: 25px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .intro {
+        font-size: 15px;
+      }
     }
   </style>
-
 </head>
 
 <body>
-  <h1>
-    Helloww, Myself Yatra Tank
-    <img class="gif"
-      src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzIxNG56aTRjZzZ2dnE2ZG0wejZlMW1uNHZkYWtiYnBmdDEwYzNzYSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/6hKL8BI8rRNrMRFtAx/giphy.gif"
-      alt="Waving hand">
-  </h1>
-  <p>I’m an aspiring software developer who’s into web development and Python. I like building practical stuff and I’m
-    always learning new technologies while improving my problem-solving skills</p>
-  
-    <h3>Tech Stack</h3>
-  <ul>
-    <li>Languages: Python, HTML, CSS</li>
-    <li>Tools: Git, GitHub, Visual Studio Code</li>
-  </ul>
 
-  <h3>Profiles</h3>
-  <ul>
-    <li>
-      <img src="https://www.pngfind.com/pngs/m/102-1026200_png-file-svg-icoon-linkedin-transparent-png.png" alt="">
-      <a href="https://www.linkedin.com/in/yatra-tank-561b42427/">LinkedIn</a>
-    </li>
-    <li>
-      <img
-        src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/1200/external-level-up-your-coding-skills-and-quickly-land-a-job-logo-color-tal-revivo.jpg"
-        alt="">
-      <a href="https://leetcode.com/u/yatratank/">LeetCode</a>
-    </li>
-  </ul>
+  <div class="container">
 
-  <h3> Upcoming Learning</h3>
-  <ul>
-    <li>React.js</li>
-    <li>Node.js & Express.js</li>
-    <li>MongoDB & Redis</li>
-    <li>Object-Oriented Programming (C++)</li>
-    <li>JWT Authentication</li>
-    <li>MERN Stack Development</li>
-  </ul>
+    <header>
+
+      <h1>
+        Helloww, Myself Yatra Tank
+        <img
+          class="gif"
+          src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzIxNG56aTRjZzZ2dnE2ZG0wejZlMW1uNHZkYWtiYnBmdDEwYzNzYSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/6hKL8BI8rRNrMRFtAx/giphy.gif"
+          alt="Waving hand">
+      </h1>
+
+      <p class="intro">
+        I’m a Computer Science student interested in software development,
+        web development, and Python. I like building practical stuff and
+        figuring out how things work.
+      </p>
+
+    </header>
+
+
+    <section>
+
+      <h3>Tech Stack</h3>
+
+      <ul>
+        <li>Languages: Python, HTML, CSS, JavaScript</li>
+        <li>Tools: Git, GitHub, Visual Studio Code, Figma</li>
+      </ul>
+
+    </section>
+
+
+    <section>
+
+      <h3>Profiles</h3>
+
+      <ul class="profiles">
+
+        <li>
+          <img
+            src="https://www.pngfind.com/pngs/m/102-1026200_png-file-svg-icoon-linkedin-transparent-png.png"
+            alt="LinkedIn">
+
+          <a
+            href="https://www.linkedin.com/in/yatra-tank-561b42427/"
+            target="_blank">
+            LinkedIn
+          </a>
+        </li>
+
+
+        <li>
+          <img
+            src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/1200/external-level-up-your-coding-skills-and-quickly-land-a-job-logo-color-tal-revivo.jpg"
+            alt="LeetCode">
+
+          <a
+            href="https://leetcode.com/u/yatratank/"
+            target="_blank">
+            LeetCode
+          </a>
+        </li>
+
+
+        <li>
+          <img
+            src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+            alt="GitHub">
+
+          <a
+            href="https://github.com/yatra-tank"
+            target="_blank">
+            GitHub
+          </a>
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <section>
+
+      <h3>Upcoming Learning</h3>
+
+      <div class="learning">
+        <span>React.js</span>
+        <span>Node.js</span>
+        <span>Express.js</span>
+        <span>MongoDB</span>
+        <span>Redis</span>
+        <span>C++ OOP</span>
+        <span>JWT</span>
+        <span>MERN</span>
+      </div>
+
+    </section>
+
+
+    <hr>
+
+
+    <footer>
+      Still learning. Still building.
+    </footer>
+
+  </div>
+
 </body>
 
 </html>
