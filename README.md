@@ -1,2 +1,2 @@
-# html-deployment
-This is repository for practice deployment.
+# html-profile
+This is repository for profile deployment.
