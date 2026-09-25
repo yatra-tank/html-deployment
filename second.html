@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yatra Tank</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Patrick+Hand&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #e9e6df;
+      color: #171717;
+      font-family: "DM Sans", sans-serif;
+    }
+
+    /* ---------- COMMON ---------- */
+
+    section {
+      min-height: 100vh;
+      padding: 70px 9%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hand {
+      font-family: "Patrick Hand", cursive;
+    }
+
+    .label {
+      font-family: "Patrick Hand", cursive;
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+      background: #eeeae3;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      width: 50%;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: clamp(55px, 8vw, 120px);
+      line-height: 0.9;
+      letter-spacing: -5px;
+      margin: 25px 0;
+    }
+
+    .wave {
+      height: 48px;
+      vertical-align: middle;
+      margin-left: 12px;
+    }
+
+    .hero p {
+      max-width: 470px;
+      font-size: 19px;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    .scribble {
+      font-family: "Patrick Hand", cursive;
+      font-size: 18px;
+      transform: rotate(-5deg);
+      display: inline-block;
+      margin-top: 30px;
+    }
+
+    .hero-art {
+      position: absolute;
+      right: 8%;
+      bottom: 12%;
+      width: 38%;
+      height: 65%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .laptop {
+      width: 300px;
+      height: 190px;
+      border: 4px solid #171717;
+      border-radius: 15px;
+      transform: rotate(-4deg);
+      position: relative;
+      background: #d8d3cb;
+    }
+
+    .screen {
+      position: absolute;
+      inset: 15px;
+      background: #171717;
+      border-radius: 6px;
+      color: #eeeae3;
+      padding: 25px;
+      font-family: monospace;
+      font-size: 15px;
+    }
+
+    .screen span {
+      display: block;
+      margin: 7px 0;
+    }
+
+    .code-purple {
+      color: #a995ff;
+    }
+
+    .code-yellow {
+      color: #e8d36c;
+    }
+
+    .code-green {
+      color: #91bd9b;
+    }
+
+    .doodle {
+      position: absolute;
+      font-family: "Patrick Hand", cursive;
+      font-size: 18px;
+    }
+
+    .doodle.one {
+      top: 12%;
+      right: 4%;
+      transform: rotate(8deg);
+    }
+
+    .doodle.two {
+      bottom: 8%;
+      left: 10%;
+      transform: rotate(-8deg);
+    }
+
+    /* ---------- CURRENTLY ---------- */
+
+    .dark {
+      background: #171717;
+      color: #f4f1ea;
+    }
+
+    .currently {
+      display: flex;
+      align-items: center;
+      gap: 100px;
+    }
+
+    .currently-left {
+      width: 45%;
+    }
+
+    .section-title {
+      font-family: "Patrick Hand", cursive;
+      font-size: clamp(55px, 7vw, 95px);
+      line-height: 0.9;
+      margin-bottom: 45px;
+    }
+
+    .currently-list {
+      list-style: none;
+    }
+
+    .currently-list li {
+      font-family: "Patrick Hand", cursive;
+      font-size: 26px;
+      padding: 13px 0;
+      border-bottom: 1px solid #555;
+    }
+
+    .currently-list li::before {
+      content: "→";
+      margin-right: 20px;
+    }
+
+    .stack {
+      width: 45%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .stack-item {
+      border: 1px solid #555;
+      padding: 25px;
+      min-height: 130px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .stack-item span:first-child {
+      font-family: "Patrick Hand", cursive;
+      font-size: 28px;
+    }
+
+    .stack-item span:last-child {
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    /* ---------- PROJECTS ---------- */
+
+    .projects {
+      background: #eeeae3;
+    }
+
+    .projects-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 70px;
+    }
+
+    .projects-header p {
+      max-width: 300px;
+      line-height: 1.6;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 35px;
+    }
+
+    .project {
+      border: 1px solid #171717;
+      min-height: 300px;
+      padding: 25px;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    .project:hover {
+      transform: translateY(-8px) rotate(-1deg);
+    }
+
+    .project-preview {
+      height: 180px;
+      background: #d8d3cb;
+      border: 1px solid #aaa;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Patrick Hand", cursive;
+      font-size: 28px;
+    }
+
+    .project h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .project p {
+      color: #555;
+      font-size: 14px;
+    }
+
+    .project-number {
+      position: absolute;
+      right: 20px;
+      top: 18px;
+      font-family: "Patrick Hand", cursive;
+      font-size: 22px;
+    }
+
+    /* ---------- FIND ME ---------- */
+
+    .find {
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .find-links {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .find-links a {
+      color: #f4f1ea;
+      text-decoration: none;
+      font-family: "Patrick Hand", cursive;
+      font-size: 35px;
+      border-bottom: 1px solid #555;
+      padding-bottom: 10px;
+      transition: 0.2s;
+    }
+
+    .find-links a:hover {
+      padding-left: 15px;
+    }
+
+    .goodbye {
+      font-family: "Patrick Hand", cursive;
+      font-size: 25px;
+      max-width: 250px;
+      transform: rotate(-5deg);
+    }
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+      background: #eeeae3;
+      padding: 25px 9%;
+      display: flex;
+      justify-content: space-between;
+      font-family: "Patrick Hand", cursive;
+      font-size: 18px;
+    }
+
+    /* ---------- MOBILE ---------- */
+
+    @media (max-width: 800px) {
+
+      section {
+        padding: 60px 7%;
+      }
+
+      .hero {
+        display: block;
+      }
+
+      .hero-content {
+        width: 100%;
+      }
+
+      .hero-art {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        height: 350px;
+        margin-top: 50px;
+      }
+
+      .currently {
+        display: block;
+      }
+
+      .currently-left,
+      .stack {
+        width: 100%;
+      }
+
+      .stack {
+        margin-top: 60px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .find {
+        display: block;
+      }
+
+      .find-links {
+        margin-top: 50px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+```
+<div class="hero-content">
+
+  <div class="label">just a computer science student :)</div>
+
+  <h1>
+    HELLOWW,<br>
+    I'M YATRA
+    <img class="wave"
+      src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzIxNG56aTRjZzZ2dnE2ZG0wejZlMW1uNHZkYWtiYnBmdDEwYzNzYSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/6hKL8BI8rRNrMRFtAx/giphy.gif"
+      alt="waving">
+  </h1>
+
+  <p>
+    computer science student.
+    mostly interested in software, web development
+    and making things that actually work.
+  </p>
+
+  <div class="scribble">
+    currently learning → building → breaking → repeating
+  </div>
+
+</div>
+
+
+<div class="hero-art">
+
+  <div class="doodle one">
+    currently pretending<br>
+    I know what I'm doing →
+  </div>
+
+  <div class="laptop">
+
+    <div class="screen">
+      <span class="code-purple">const</span> yatra = {</span>
+      <span>&nbsp;&nbsp;learning: <span class="code-yellow">"javascript"</span>,</span>
+      <span>&nbsp;&nbsp;designing: <span class="code-yellow">"figma"</span>,</span>
+      <span>&nbsp;&nbsp;debugging: <span class="code-green">true</span></span>
+      <span>}</span>
+    </div>
+
+  </div>
+
+  <div class="doodle two">
+    ← probably a bug
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- CURRENTLY -->
+
+  <section class="dark currently">
+
+```
+<div class="currently-left">
+
+  <div class="section-title">
+    currently
+  </div>
+
+  <ul class="currently-list">
+    <li>learning JavaScript</li>
+    <li>exploring web development</li>
+    <li>playing around with Figma</li>
+    <li>getting into AI / ML</li>
+    <li>figuring things out</li>
+  </ul>
+
+</div>
+
+
+<div class="stack">
+
+  <div class="stack-item">
+    <span>Python</span>
+    <span>language</span>
+  </div>
+
+  <div class="stack-item">
+    <span>HTML / CSS</span>
+    <span>web</span>
+  </div>
+
+  <div class="stack-item">
+    <span>JavaScript</span>
+    <span>learning</span>
+  </div>
+
+  <div class="stack-item">
+    <span>Figma</span>
+    <span>design</span>
+  </div>
+
+  <div class="stack-item">
+    <span>Git</span>
+    <span>version control</span>
+  </div>
+
+  <div class="stack-item">
+    <span>GitHub</span>
+    <span>collaboration</span>
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section class="projects">
+
+```
+<div class="projects-header">
+
+  <div class="section-title">
+    things<br>i've made
+  </div>
+
+  <p>
+    a few projects, experiments,
+    assignments and random things
+    I've built while learning.
+  </p>
+
+</div>
+
+
+<div class="project-grid">
+
+  <div class="project">
+
+    <div class="project-number">01</div>
+
+    <div class="project-preview">
+      WEB / HTML / CSS / JS
+    </div>
+
+    <h3>Web Projects</h3>
+
+    <p>
+      websites and front-end experiments.
+    </p>
+
+  </div>
+
+
+  <div class="project">
+
+    <div class="project-number">02</div>
+
+    <div class="project-preview">
+      PYTHON
+    </div>
+
+    <h3>Python Projects</h3>
+
+    <p>
+      small programs, exercises and problem solving.
+    </p>
+
+  </div>
+
+
+  <div class="project">
+
+    <div class="project-number">03</div>
+
+    <div class="project-preview">
+      FIGMA
+    </div>
+
+    <h3>Designs</h3>
+
+    <p>
+      UI experiments and things I've designed.
+    </p>
+
+  </div>
+
+
+  <div class="project">
+
+    <div class="project-number">04</div>
+
+    <div class="project-preview">
+      GIT / GITHUB
+    </div>
+
+    <h3>Git Projects</h3>
+
+    <p>
+      repositories, collaboration and version control.
+    </p>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- FIND ME -->
+
+  <section class="dark find">
+
+```
+<div>
+
+  <div class="section-title">
+    find me
+  </div>
+
+  <div class="goodbye">
+    somewhere between writing code
+    and wondering why it doesn't work.
+  </div>
+
+</div>
+
+
+<div class="find-links">
+
+  <a href="https://github.com/yatra-tank" target="_blank">
+    GitHub →
+  </a>
+
+  <a href="https://www.linkedin.com/in/yatra-tank-561b42427/" target="_blank">
+    LinkedIn →
+  </a>
+
+  <a href="https://leetcode.com/u/yatratank/" target="_blank">
+    LeetCode →
+  </a>
+
+</div>
+```
+
+  </section>
+
+  <footer>
+
+```
+<span>Yatra Tank</span>
+
+<span>thanks for stopping by :)</span>
+```
+
+  </footer>
+
+</body>
+
+</html>
